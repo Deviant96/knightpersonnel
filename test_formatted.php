@@ -89,12 +89,6 @@ function sendEmail($order_id)
 	wp_mail($customer_email, 'AMS Training Registered Students', $message, $headers);
 }
 
-function add_custom_jquery()
-{
-	wp_deregister_script('jquery'); // Remove the default WordPress jQuery
-	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js', array(), null, true);
-}
-add_action('wp_enqueue_scripts', 'add_custom_jquery');
 session_start();
 add_action('woocommerce_before_calculate_totals', 'rudr_custom_price_refresh');
 
@@ -221,11 +215,6 @@ function refreshArrayCart($discounted_amount_total, $course_code_loop)
 	}
 	$_SESSION["purchasedCourseWooCommerceObjectArray"] = $listOfpurchasedCourses;
 }
-function my_action_callback()
-{
-	echo "QWERTY";
-	die();
-}
 function getMail($first, $last, $email, $course_code)
 {
 	//'RIIWHS204E-2'
@@ -239,10 +228,6 @@ function my_action_callback2()
 {
 	$_SESSION["error-message"] = "True";
 	die();
-}
-
-function impeka_child_theme_setup()
-{
 }
 function my_enqueue()
 {
@@ -260,11 +245,6 @@ function get_more_posts()
 	echo $_GET['id'];
 	exit();
 }
-function custom_hello_shortcode()
-{
-	return '<p>Hello, this is a custom shortcode output!</p>';
-}
-add_shortcode('custom_hello', 'custom_hello_shortcode');
 function getAvailbility($purchaseCourseTitle = '', $course_code, $dates)
 {
 	$args = array(
@@ -370,42 +350,6 @@ function include_calendar_with_scripts_shortcode()
 }
 add_shortcode('calendar_with_scripts_shortcode', 'include_calendar_with_scripts_shortcode');
 
-wp_enqueue_style('styleOnePageBasic', get_stylesheet_directory_uri() . '/styleOnePageBasic.css', false, '1.1', 'all');
-wp_enqueue_style('template-thank-you-for-enrolling', get_stylesheet_directory_uri() . '/template-thank-you-for-enrolling.css', false, '1.1', 'all');
-
-wp_enqueue_style('bttn', get_stylesheet_directory_uri() . '/template-parts/button/button.css', false, '1.1', 'all');
-wp_enqueue_style('bttn2', get_stylesheet_directory_uri() . '/template-parts/button/button2.css', false, '1.1', 'all');
-wp_enqueue_style('chips', get_stylesheet_directory_uri() . '/template-parts/chips/chips.css', false, '1.1', 'all');
-
-wp_enqueue_style('footer', get_stylesheet_directory_uri() . '/template-parts/footer/footer-content.css', false, '1.1', 'all');
-
-wp_enqueue_style('menu2', get_stylesheet_directory_uri() . '/template-parts/menu2/menu2.css', false, '1.1', 'all');
-wp_enqueue_style('menu3', get_stylesheet_directory_uri() . '/template-parts/menu3/menu3.css', false, '1.1', 'all');
-wp_enqueue_style('menu4', get_stylesheet_directory_uri() . '/template-parts/menu4/menu4.css', false, '1.1', 'all');
-wp_enqueue_style('menuHamburguer', get_stylesheet_directory_uri() . '/template-parts/menuHamburguer/menuHamburguer.css', false, '1.1', 'all');
-
-wp_enqueue_style('banner10', get_stylesheet_directory_uri() . '/template-parts/banners/banner10/banner10.css', false, '1.1', 'all');
-wp_enqueue_style('banner11', get_stylesheet_directory_uri() . '/template-parts/banners/banner11/banner11.css', false, '1.1', 'all');
-wp_enqueue_style('banner12', get_stylesheet_directory_uri() . '/template-parts/banners/banner12/banner12.css', false, '1.1', 'all');
-wp_enqueue_style('banner13', get_stylesheet_directory_uri() . '/template-parts/banners/banner13/banner13.css', false, '1.1', 'all');
-wp_enqueue_style('bannerEnrolNow', get_stylesheet_directory_uri() . '/template-parts/banners/bannerEnrolNow/bannerEnrolNow.css', false, '1.1', 'all');
-wp_enqueue_style('bannerTrainers', get_stylesheet_directory_uri() . '/template-parts/banners/bannerTrainers/bannerTrainers.css', false, '1.1', 'all');
-wp_enqueue_style('contactUs', get_stylesheet_directory_uri() . '/template-parts/banners/contactus/contactus.css', false, '1.1', 'all');
-wp_enqueue_style('contactForm3', get_stylesheet_directory_uri() . '/template-parts/contactForm3/contactForm3.css', false, '1.1', 'all');
-wp_enqueue_style('calendar', get_stylesheet_directory_uri() . '/template-parts/calendar/calendar.css', false, '1.1', 'all');
-wp_enqueue_style('calendar-shortcuts', get_stylesheet_directory_uri() . '/template-parts/calendar/calendar-shortcuts.css', false, '1.1', 'all');
-wp_enqueue_style('enrolments', get_stylesheet_directory_uri() . '/template-parts/enrolments/enrolments.css', false, '1.1', 'all');
-wp_enqueue_style('template-product', get_stylesheet_directory_uri() . '/template-product.css', false, '1.1', 'all');
-wp_enqueue_style('cards', get_stylesheet_directory_uri() . '/template-parts/Cards/CardsWooCommerce/Cards_img_title_btm/Cards_img_title_btm.css', false, '1.1', 'all');
-wp_enqueue_style('home3', get_stylesheet_directory_uri() . '/template-parts/home3/home3.css', false, '1.1', 'all');
-wp_enqueue_style('home3-blurry', get_stylesheet_directory_uri() . '/template-parts/home3-blurry/home3-blurry.css', false, '1.1', 'all');
-wp_enqueue_style('Thankyou', get_stylesheet_directory_uri() . '/template-parts/Thankyou/Thankyou.css', false, '1.1', 'all');
-wp_enqueue_style('404', get_stylesheet_directory_uri() . '/404.css', false, '1.1', 'all');
-wp_enqueue_style('template-successful', get_stylesheet_directory_uri() . '/template-successful.css', false, '1.1', 'all');
-wp_enqueue_style('template-unsuccessful', get_stylesheet_directory_uri() . '/template-unsuccessful.css', false, '1.1', 'all');
-
-
-
 //NOW THE JS ARE IN EACH ELEMENT
 wp_enqueue_script('Thankyou', get_stylesheet_directory_uri() . '/template-parts/Thankyou/Thankyou.js', false, '1.1', 'all');
 //wp_enqueue_script( 'contactForm3', get_stylesheet_directory_uri() . '/template-parts/contactForm3/contactForm3.js',false,'1.1','all');
@@ -496,181 +440,11 @@ if (!function_exists('blank_canvas_setup')) :
 endif;
 add_action('after_setup_theme', 'blank_canvas_setup', 11);
 
-function impeka_child_colors()
-{
-	return array(
-		array('--global--color-background', '#FFFFFF', __('Background Color', 'impeka-child')),
-		array('--global--color-foreground', '#333333', __('Foreground Color', 'impeka-child')),
-		array('--global--color-primary', '#000000', __('Primary Color', 'impeka-child')),
-		array('--global--color-secondary', '#007cba', __('Secondary Color', 'impeka-child')),
-		array('--global--color-tertiary', '#FAFAFA', __('Tertiary Color', 'impeka-child')),
-	);
-}
-add_filter('impeka_colors', 'impeka_child_colors');
-
-function custom_code_in_header()
-{
-	// Add your custom code here
-	echo '<script src="https://kit.fontawesome.com/7f42801a61.js" crossorigin="anonymous"></script>';
-	//	wp_enqueue_style('calendarShortCut', get_stylesheet_directory_uri() . '/template-parts/calendar/calendar-shortcut.css', false, '1.1', 'all');
-}
-
-add_action('wp_head', 'custom_code_in_header');
-
-function custom_courses_shortcode($atts)
-{
-	ob_start(); // Start output buffering
-
-?>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-	<script src="https://kit.fontawesome.com/7f42801a61.js" crossorigin="anonymous"></script>
-
-	<!-- <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>-->
-	<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-	<!-- CONFLICT WITH STRIPE <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script> CONFLICT WITH STRIPE -->
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-
-
-
-
-
-	<!-- <link rel="stylesheet" href="https://use.typekit.net/utc8jhj.css">-->
-	<?php
-	include 'template-parts/calendar/calendar-shortcuts.php';
-
-	?>
-
-<?  // Output buffering ends and returns the content
-	return ob_get_clean();
-}
-add_shortcode('calendar_shortcut_shortcode', 'custom_courses_shortcode');
 function getCourseCategory($code, $plan)
 {
 	return  get_rtodata(array('code' => $code, 'plan' => $plan), 'detail');
 }
-add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
 
-// Our hooked in function - $fields is passed via the filter!
-function custom_override_checkout_fields($fields)
-{
-
-	$fields['billing']['billing_company'] = array(
-		'label_class'  => '', 'label' => 'Company/Business Name'
-	);
-
-	$fields['billing']['billing_first_name']['label'] = 'First Name';
-	$fields['billing']['billing_first_name']['placeholder'] = '';
-
-	$fields['billing']['billing_last_name']['label'] = 'Last Name';
-	$fields['billing']['billing_last_name']['placeholder'] = '  ';
-
-
-
-
-	//unset($fields['billing']['billing_company']);
-
-
-
-
-
-
-	//unset($fields['billing']['billing_last_name']);
-	// unset($fields['billing']['billing_first_name']);
-	$fields['billing']['billing_abn'] = array(
-		'label'     => __('ABN', 'woocommerce'),
-		'placeholder'   => _x('ABN', 'placeholder', 'woocommerce'),
-		'required'  => false,
-		'class'     => array('form-row-wide'),
-		'clear'     => true
-	);
-	$fields['billing']['billing_abn']['priority'] = 35;
-
-
-
-	$fields['billing']['billing_address_1'] = array(
-		'label'     => __('Street Address 1', 'woocommerce'),
-		'required'  => false,
-		'class'     => array('form-row-wide'),
-		'clear'     => true
-	);
-
-	$fields['billing']['billing_address_2'] = array(
-		'label'     => __('Street Address 2', 'woocommerce'),
-		'required'  => false,
-		'class'     => array('form-row-wide'),
-		'clear'     => true
-	);
-	$fields['billing']['billing_city'] = array(
-		'label'     => __('City', 'woocommerce'),
-		'required'  => false,
-		'class'     => array('form-row-wide'),
-		'clear'     => true
-	);
-	$fields['billing']['billing_postcode'] = array(
-		'label'     => __('Postcode', 'woocommerce'),
-		'required'  => false,
-		'class'     => array('form-row-wide'),
-		'clear'     => true
-	);
-	$fields['billing']['billing_country'] = array(
-		'label'     => __('Country', 'woocommerce'),
-		'required'  => false,
-		'class'     => array('form-row-wide'),
-		'clear'     => true
-	);
-	$fields['billing']['billing_state'] = array(
-		'label'     => __('State', 'woocommerce'),
-		'placeholder' => '',
-		'required'  => false,
-		'class'     => array('form-row-wide'),
-		'clear'     => true
-	);
-	$fields['billing']['billing_phone'] = array(
-		'label'     => __('Phone', 'woocommerce'),
-		'required'  => false,
-		'class'     => array('form-row-wide'),
-		'clear'     => true
-	);
-	$fields['billing']['billing_email'] = array(
-		'required'  => true,
-		'label'     => __('Email <span style="color:red; font-size:1.2rem; font-weight: bold;">(The Tax invoice will be sent to this email address)</span>', 'woocommerce'),
-		'class'     => array('form-row-wide'),
-		'clear'     => true
-	);
-	return $fields;
-}
-
-add_action('woocommerce_before_checkout_form', 'woocommerce_checkout_login_form', 10);
-function woocommerce_checkout_login_form()
-{
-
-
-	echo '<style>
-			.woocommerce-notices-wrapper{
-				display:none;
-			}
-			.product-thumbnail{
-				display:none;
-	</style>';
-	echo '<div style="margin-bottom: 10em; color:white">.</div>';
-	echo '<div class="wide-max-width" id="enrolment-page">';
-
-	echo '<h2 style="text-align: center;font-size: 2rem">Registration Page</h2>';
-	echo '<h5 style="text-align: center;font-size: 1.2rem;color:#E3701C">Please ensure you have checked all entry requirements on the relevant' . '<br>' . 'course page prior to completing your registration below.' . '
-</h5>';
-	echo '<br>' . '<h5 style="text-align: center;font-size: 1rem;color:#E3701C;margin-top:-15px!important">Please complete the registration details below and make your payment.</span></h5>';
-
-	echo '<h5 style="text-align: center;font-size: 1rem;color:#E3701C;margin-top:-15px!important">Once payment is confirmed you will receive a receipt of payment and a link to complete your online enrolment.</span></h5>';
-	echo '<h5 style="text-align: center;font-size: 1rem;color:#E3701C;margin-top:-15px!important">To reduce delays ensure you provide your entry requirements for online courses.</span></h5>';
-	echo '<h5 style="text-align: center;font-size: 1rem;color:#E3701C;margin-top:-15px!important;margin-bottom:2.5rem!important">For online courses login information is provided once entry requirements have been meet. </span></h5>';
-
-	echo '</div>';
-}
 /**   Creating payment gateway */
 
 
@@ -2464,34 +2238,6 @@ function add_to_cart_ajax()
 	wp_send_json_success();
 }
 
-function custom_thankyou_redirect($order_id)
-{
-	$order = wc_get_order($order_id);
-	if ($order) {
-		$thankyou_page_url = 'https://amstraining.com.au/thank-you/'; // Replace with your custom thank you page URL
-		wp_safe_redirect($thankyou_page_url);
-		exit;
-	}
-}
-add_action('woocommerce_thankyou', 'custom_thankyou_redirect');
-// Add an action to update order status to "completed" after payment is received
-add_action('woocommerce_order_status_processing', 'custom_auto_complete_order');
-
-function custom_auto_complete_order($order_id)
-{
-	if (!$order_id) {
-		return;
-	}
-
-	// Load the order
-	$order = wc_get_order($order_id);
-
-	// Change order status to completed
-	if ($order) {
-		// $order->update_status('completed');
-	}
-}
-
 function my_ajax_function()
 {
 	$response_data = array();
@@ -2615,27 +2361,6 @@ function custom_file_upload()
 	echo 'File uploaded successfully';
 }
 
-
-
-add_action('wp_ajax_user_login_checker', 'check_user_login');
-
-// Register AJAX callback for non-authenticated users
-add_action('wp_ajax_nopriv_user_login_checker', 'check_user_login');
-
-// AJAX callback function
-function check_user_login()
-{
-	if (is_user_logged_in()) {
-		// User is logged in
-		echo "Welcome, logged-in user!";
-	} else {
-		// User is not logged in
-		echo "True";
-	}
-
-
-	wp_die();
-}
 add_action('wp_ajax_standing_agrement_number', 'standing_agrement_number');
 
 // Register AJAX callback for non-authenticated users
@@ -2814,59 +2539,11 @@ function custom_checkout_field_update_order_meta($order, $data)
 	$_SESSION['purchase_order'] = '';
 }
 
-add_filter('gettext', 'bbloomer_translate_woocommerce_strings_emails', 999);
-
-function bbloomer_translate_woocommerce_strings_emails($translated)
-{
-	// Get strings and translate them into empty strings
-	$translated = str_ireplace('Thanks for shopping with us.', '', $translated);
-	$translated = str_ireplace('We hope to see you again soon.', '', $translated);
-	return $translated;
-}
-
-
-
 add_filter('woocommerce_checkout_order_review_heading', 'change_order_review_heading');
 function change_order_review_heading($heading)
 {
 	return 'New Order Review Heading';
 }
-function include_calendar_shortcut_with_scripts_shortcode()
-{
-	ob_start(); // Start output buffering
-?>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-	<script src="https://kit.fontawesome.com/7f42801a61.js" crossorigin="anonymous"></script>
-
-	<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-	<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-	<!-- CONFLICT WITH STRIPE <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script> CONFLICT WITH STRIPE -->
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-
-
-
-
-
-	<link rel="stylesheet" href="https://use.typekit.net/utc8jhj.css">
-	<script src="https://amstraining.rtodata.com.au/api/widget/widget.js"></script>
-
-	<!-- Swiper JS -->
-	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-	<?php
-	include 'template-parts/calendar/calendar-shortcuts-product-page.php';
-	wp_enqueue_script('calendar', get_stylesheet_directory_uri() . '/template-parts/calendar/calendar.js', false, '1.1', 'all');
-	?>
-
-<?php
-	return ob_get_clean(); // Get and clean the buffered output
-}
-add_shortcode('calendar_shortcut_with_scripts_shortcode', 'include_calendar_shortcut_with_scripts_shortcode');
 
 
 function include_enrolment_shortcut_with_scripts_shortcode()
@@ -2882,22 +2559,6 @@ function include_enrolment_shortcut_with_scripts_shortcode()
 
 add_shortcode('enrolment_shortcut', 'include_enrolment_shortcut_with_scripts_shortcode');
 
-
-
-
-
-
-
-
-
-
-
-add_filter('woocommerce_checkout_fields', 'hide_billing_country_field');
-function hide_billing_country_field($fields)
-{
-	unset($fields['billing']['billing_country']);
-	return $fields;
-}
 // Define a custom function to run when payment is completed
 function custom_payment_complete_function($order_id)
 {
@@ -2982,49 +2643,7 @@ function custom_payment_complete_function($order_id)
 	}
 }
 add_action('woocommerce_payment_complete', 'custom_payment_complete_function');
-function create_custom_role()
-{
-	$role_slug = 'purchase_order_client'; // Set the slug for your custom role
-	$role_name = 'Purchase Order Client'; // Set the display name for your custom role
 
-	// Check if the role already exists
-	if (get_role($role_slug)) {
-		return;
-	}
-
-	// Add the custom role
-	add_role($role_slug, $role_name, array(
-		// Set capabilities for the custom role
-		'read'         => true,
-		'edit_posts'   => true,
-		'delete_posts' => false,
-		// Add more capabilities as needed
-	));
-}
-add_action('init', 'create_custom_role');
-function redirect_based_on_user_role($user_login, $user)
-{
-	// Get the user's roles
-	$user_roles = $user->roles;
-
-	// Redirect based on user role
-	if (in_array('administrator', $user_roles)) {
-		// Redirect administrators to a specific page
-		// wp_redirect(home_url('/dashboard/'));
-	} elseif (in_array('editor', $user_roles)) {
-		// Redirect editors to a different page
-		//  wp_redirect(home_url('/editor-dashboard/'));
-	} elseif (in_array('subscriber', $user_roles)) {
-		// Redirect subscribers to another page
-		//wp_redirect(home_url('/subscriber-dashboard/'));
-	} else {
-		// Redirect other user roles to the default home page
-		//wp_redirect(home_url('/'));
-	}
-
-	exit();
-}
-add_action('wp_login', 'redirect_based_on_user_role', 10, 2);
 function custom_login_form_shortcode()
 {
 	ob_start();
@@ -3032,22 +2651,6 @@ function custom_login_form_shortcode()
 	return ob_get_clean();
 }
 add_shortcode('custom_login_form', 'custom_login_form_shortcode');
-// Hide admin dashboard for specific user roles
-function custom_hide_dashboard()
-{
-	if (current_user_can('subscriber')) { // Replace 'subscriber' with the desired user role
-		wp_redirect(home_url());
-		exit;
-	}
-}
-add_action('admin_init', 'custom_hide_dashboard');
-function custom_hide_admin_bar_based_on_role()
-{
-	if (current_user_can('purchase_order_client')) {
-		show_admin_bar(false);
-	}
-}
-add_action('after_setup_theme', 'custom_hide_admin_bar_based_on_role');
 function enrollStudent($first_name, $last_name, $date_of_birth, $email_address, $course_id, $plan_id, $schdule_id, $start_date, $end_date)
 {
 
@@ -3128,14 +2731,6 @@ function add_secret_key()
 
 	echo $secret_key;
 }
-
-
-
-
-
-
-
-
 
 
 add_action('wp_ajax_registration_checker', 'registration_checker');
@@ -3240,30 +2835,6 @@ function registration_checker_shortcode()
 add_shortcode('registration_checker_shortcode', 'registration_checker_shortcode');
 // Add this code to your theme's functions.php file or a custom plugin.
 
-function prevent_checkout_for_zero_subtotal()
-{
-	// Check if WooCommerce is active.
-	if (class_exists('WooCommerce')) {
-		// Get the WooCommerce cart object.
-		$cart = WC()->cart;
-
-		// Check if the subtotal is zero.
-		if ($cart->subtotal == 0) {
-			// Disable the checkout button.
-			remove_action('woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 20);
-
-			// Display a message to the user.
-			add_action('woocommerce_before_cart', 'zero_subtotal_checkout_message');
-		}
-	}
-}
-
-function zero_subtotal_checkout_message()
-{
-	echo '<div class="woocommerce-info">' . __('Your cart subtotal is zero. Please add items to your cart before checking out.', 'woocommerce') . '</div>';
-}
-
-add_action('wp', 'prevent_checkout_for_zero_subtotal');
 function my_ajax_function7()
 {
 	// $current_url = $_POST['current_url'];
@@ -3303,37 +2874,7 @@ function my_ajax_function7()
 }
 add_action('wp_ajax_my_action_check_enrol', 'my_ajax_function7');
 add_action('wp_ajax_nopriv_my_action_check_enrol', 'my_ajax_function7'); // For non-logged-in users.
-function add_google_tag_manager()
-{
-?>
-	<!-- Google Tag Manager -->
-	<script>
-		(function(w, d, t, r, u) {
-			var f, n, i;
-			w[u] = w[u] || [], f = function() {
-				var o = {
-					ti: "151009258",
-					enableAutoSpaTracking: true
-				};
-				o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad")
-			}, n = d.createElement(t), n.src = r, n.async = 1, n.onload = n.onreadystatechange = function() {
-				var s = this.readyState;
-				s && s !== "loaded" && s !== "complete" || (f(), n.onload = n.onreadystatechange = null)
-			}, i = d.getElementsByTagName(t)[0], i.parentNode.insertBefore(n, i)
-		})(window, document, "script", "//bat.bing.com/bat.js", "uetq");
-	</script>
-	<!-- End Google Tag Manager -->
-<?php
-}
-add_action('wp_head', 'add_google_tag_manager');
-function add_google_tag_manager_footer()
-{
-?>
-	<!-- Google Tag Manager (noscript) -->
 
-<?php
-}
-add_action('wp_footer', 'add_google_tag_manager_footer');
 function face_to_face_auto_enrol($order_id)
 {
 	// Your custom code here
@@ -3379,80 +2920,7 @@ function face_to_face_auto_enrol($order_id)
 	}
 }
 add_action('woocommerce_order_status_completed', 'face_to_face_auto_enrol', 10, 1);
-function enqueue_stripe_scripts()
-{
-	wp_enqueue_script('stripe-js', 'https://js.stripe.com/v3/', array(), null, true);
 
-	// Replace 'your-publishable-key' with your actual publishable key
-	wp_localize_script('stripe-js', 'stripe_vars', array(
-		'publishable_key' => 'your-publishable-key'
-	));
-
-	wp_enqueue_script('custom-stripe-script', get_template_directory_uri() . '/js/custom-stripe-script.js', array('stripe-js'), null, true);
-}
-
-add_action('wp_enqueue_scripts', 'enqueue_stripe_scripts');
-
-function add_custom_script_to_footer()
-{
-?>
-	<script>
-		jQuery(document).ready(function($) {
-			// Remove screen reader text class from billing field labels
-			$('.woocommerce-billing-fields label').removeClass('screen-reader-text');
-			$('.woocommerce-checkout #billing_first_name').removeAttr('placeholder');
-			$('.woocommerce-checkout #billing_last_name').removeAttr('placeholder');
-			$('.woocommerce-checkout #billing_company').removeAttr('placeholder');
-			$('.woocommerce-checkout #billing_abn').removeAttr('placeholder');
-			$('.woocommerce-checkout #billing_address_1').removeAttr('placeholder');
-			$('.woocommerce-checkout #billing_address_2').removeAttr('placeholder');
-			$('.woocommerce-checkout #billing_city').removeAttr('placeholder');
-			$('.woocommerce-checkout #billing_postcode').removeAttr('placeholder');
-			$('.woocommerce-checkout #billing_phone').removeAttr('placeholder');
-			$('.woocommerce-checkout #billing_email').removeAttr('placeholder');
-			$('.woocommerce-checkout #billing_state').removeAttr('placeholder');
-
-
-		});
-	</script>
-
-
-<?php
-}
-
-add_action('wp_footer', 'add_custom_script_to_footer');
-add_action('wc_gateway_stripe_process_payment_error', 'display_custom_error_message', 10, 2);
-
-function display_custom_error_message($error, $order)
-{
-	// Generate a custom error message
-	$custom_error_message = __('There was an error processing your payment. Please try again.', 'email.trainingcompany.com.au');
-
-	// Display the error message on the checkout page
-	wc_add_notice($custom_error_message, 'error');
-
-	// You may want to cancel the order, redirect, or take other actions based on your requirements
-	// For example, cancel the order
-	$order->update_status('failed', __('Payment failed', 'email.trainingcompany.com.au'));
-}
-
-// Add shortcode to include JavaScript for input event listeners
-add_action('wp_ajax_custom_user_check', 'custom_user_check');
-add_action('wp_ajax_nopriv_custom_user_check', 'custom_user_check');
-
-function custom_user_check()
-{
-	$response = array();
-
-	if (is_user_logged_in()) {
-		$response['logged_in'] = true;
-	} else {
-		$response['logged_in'] = false;
-	}
-
-	echo json_encode($response);
-	wp_die();
-}
 // Add jQuery AJAX code to wp_footer hook
 function my_custom_ajax_script()
 {
@@ -4448,62 +3916,6 @@ function update_cart_on_item_qty_change()
 	endif;
 }
 // Add student details to WooCommerce order
-
-add_action('woocommerce_order_status_completed', 'my_custom_action_after_order_completion', 10, 1);
-function my_custom_action_after_order_completion($order_id)
-{
-}
-// Add this code to your theme's functions.php file or a custom plugin
-
-add_action('woocommerce_checkout_before_customer_details', 'custom_checkout_fields_before_billing_details', 20);
-function custom_checkout_fields_before_billing_details()
-{
-	$domain = 'woocommerce';
-	$checkout = WC()->checkout;
-
-	echo '<div id="student-details-container">';
-
-	echo '<h3>' . __('Student details') . '</h3>';
-	echo '<p name="Student_Number" class="Student_Number">Student Number : 1</p>';
-	echo '<div class="student-details">';
-
-	woocommerce_form_field('student_first_name_1', array(
-		'type' => 'text',
-		'class' => array('form-row-first'),
-		'label' => __('Student First Name'),
-		'placeholder' => __(''),
-		'required' => true,
-	), $checkout->get_value('student_first_name_1'));
-
-	woocommerce_form_field('student_last_name_1', array(
-		'type' => 'text',
-		'class' => array('form-row-last'),
-		'label' => __('Student Last Name'),
-		'placeholder' => __(''),
-		'required' => true,
-	), $checkout->get_value('student_last_name_1'));
-
-	woocommerce_form_field('student_email_1', array(
-		'type' => 'email',
-		'class' => array('form-row-wide'),
-		'label' => __('Student Email'),
-		'placeholder' => __(''),
-		'required' => true,
-	), $checkout->get_value('student_email_1'));
-	echo ' <hr class="hr-student">';
-	echo '<br>';
-	echo '</div>';
-	echo '</div>';
-	woocommerce_form_field('student_quantity', array(
-		'type' => 'text',
-		'class' => array('form-row-wide'),
-		'id' => 'student_quantity',
-		'placeholder' => __(''),
-		'value' => 1,
-		'required' => true,
-	), $checkout->get_value('student_quantity'));
-	echo '<br>';
-}
 
 // Define a function to update quantities before processing
 function update_quantities_before_processing()
